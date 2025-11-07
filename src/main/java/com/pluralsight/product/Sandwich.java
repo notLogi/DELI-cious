@@ -242,7 +242,7 @@ public class Sandwich extends Product{
         }
         totalCost = listOfToppings.stream()
                 .map(Topping::getCost)
-                .reduce(totalCost, (temp, num) -> temp += num);
+                .reduce(totalCost, Double::sum);
         return totalCost;
     }
 }
