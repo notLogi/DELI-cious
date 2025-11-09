@@ -25,4 +25,10 @@ public class Drink extends Product{
             default -> 0.0;
         };
     }
+
+    @Override
+    public String toString() {
+        return "Drink(size " +
+                size + " ): " + getCost() + "\n";
+    }
 }

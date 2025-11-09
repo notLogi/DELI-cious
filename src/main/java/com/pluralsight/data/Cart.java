@@ -23,6 +23,10 @@ public class Cart {
         shoppingCart.remove(product);
     }
 
+    public void emptyShoppingCart(){
+        shoppingCart.clear();
+    }
+
     public double getTotalCost(){
         return shoppingCart.stream()
                 .map(Product::getCost)

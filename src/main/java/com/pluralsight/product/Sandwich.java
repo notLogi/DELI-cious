@@ -47,6 +47,7 @@ public class Sandwich extends Product{
         while(true){
             System.out.println("What toppings do you want? Type 1-5, meat, cheese, vegetables, sauces, and sides, respectively.\nType 99 to back");
             int choice = scanner.nextInt();
+            scanner.nextLine();
             if(choice == 99){
                 return;
             }
@@ -85,10 +86,10 @@ public class Sandwich extends Product{
             case 6 -> name = "bacon";
             default -> name = "";
         }
-        System.out.println("Do you want extra meat?\nType yes if you do, leave blank if you don't");
-        String choiceExtra = scanner.nextLine();
-        boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
         if(!name.isEmpty()){
+            System.out.println("Do you want extra meat?\nType yes if you do, leave blank if you don't");
+            String choiceExtra = scanner.nextLine();
+            boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
             listOfToppings.add(new Meat(name, size, wantsExtra));
             System.out.println("Meat topping added successfully");
             return;
@@ -116,10 +117,10 @@ public class Sandwich extends Product{
             case 4 -> name = "swiss";
             default -> name = "";
         }
-        System.out.println("Do you want extra cheese?\nType yes if you do, leave blank if you don't");
-        String choiceExtra = scanner.nextLine();
-        boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
         if(!name.isEmpty()){
+            System.out.println("Do you want extra cheese?\nType yes if you do, leave blank if you don't");
+            String choiceExtra = scanner.nextLine();
+            boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
             listOfToppings.add(new Cheese(name, size, wantsExtra));
             System.out.println("Cheese topping added successfully");
             return;
@@ -157,10 +158,11 @@ public class Sandwich extends Product{
             case 9 -> name = "mushrooms";
             default -> name = "";
         }
-        System.out.println("Do you want extra veggies?\nType yes if you do, leave blank if you don't");
-        String choiceExtra = scanner.nextLine();
-        boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
+
         if(!name.isEmpty()){
+            System.out.println("Do you want extra veggies?\nType yes if you do, leave blank if you don't");
+            String choiceExtra = scanner.nextLine();
+            boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
             listOfToppings.add(new Vegetable(name, wantsExtra));
             System.out.println("Veggie topping added successfully");
             return;
@@ -190,10 +192,10 @@ public class Sandwich extends Product{
             case 5 -> name = "vinaigrette";
             default -> name = "";
         }
-        System.out.println("Do you want extra sauce?\nType yes if you do, leave blank if you don't");
-        String choiceExtra = scanner.nextLine();
-        boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
         if(!name.isEmpty()){
+            System.out.println("Do you want extra sauce?\nType yes if you do, leave blank if you don't");
+            String choiceExtra = scanner.nextLine();
+            boolean wantsExtra = choiceExtra.equalsIgnoreCase("yes");
             listOfToppings.add(new Sauce(name, wantsExtra));
             System.out.println("Sauce topping added successfully");
             return;
@@ -213,11 +215,8 @@ public class Sandwich extends Product{
             return;
         String name;
         switch(sideChoice){
-            case 1 -> name = "mayo";
-            case 2 -> name = "ketchup";
-            case 3 -> name = "ranch";
-            case 4 -> name = "thousand islands";
-            case 5 -> name = "vinaigrette";
+            case 1 -> name = "sauce";
+            case 2 -> name = "au jus";
             default -> name = "";
         }
         System.out.println("Do you want extra sides?\nType yes if you do, leave blank if you don't");
@@ -244,5 +243,16 @@ public class Sandwich extends Product{
                 .map(Topping::getCost)
                 .reduce(totalCost, Double::sum);
         return totalCost;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(Topping topping : listOfToppings){
+            sb.append(topping.getName()).append(", ");
+        }
+        sb.deleteCharAt(sb.length() - 2);
+        String isToastedConvert = isToasted() ? "(Toasted)" : "";
+        return "Sandwich" + isToastedConvert + ":\nBread Type: " + breadType + "\nSize: " + size + "\nToppings: " + sb + "\nPrice: " + getCost() + "\n";
     }
 }
