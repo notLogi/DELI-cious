@@ -123,14 +123,6 @@ public class HomeScreen {
 
         System.out.println("Please add a topping.");
         sandwich.addTopping(scanner);
-        while(true){
-            System.out.println("Do you want to add more toppings?\nType yes if so, any other response will default to no.");
-            String extraToppingWanted = scanner.nextLine();
-            if(extraToppingWanted.equalsIgnoreCase("yes")){
-                sandwich.addTopping(scanner);
-            }
-            else break;
-        }
         myCart.addProduct(sandwich);
         System.out.println("Sandwich added successfully");
     }
