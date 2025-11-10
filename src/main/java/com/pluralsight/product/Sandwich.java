@@ -23,26 +23,6 @@ public class Sandwich extends Product{
         return isToasted;
     }
 
-    public void setToasted(boolean toasted) {
-        isToasted = toasted;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getBreadType() {
-        return breadType;
-    }
-
-    public void setBreadType(String breadType) {
-        this.breadType = breadType;
-    }
-
     public void addTopping(Scanner scanner){
         while(true){
             System.out.println("What toppings do you want? Type 1-5, meat, cheese, vegetables, sauces, and sides, respectively.\nType 99 to back");
