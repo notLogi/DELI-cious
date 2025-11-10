@@ -55,30 +55,37 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - IntelliJ IDEA
 
 ## Demo(Left to right, top to bottom)
-<img width="270" height="154" alt="image" src="https://github.com/user-attachments/assets/2af1bf41-7fa8-47f4-9283-e2410a73a4fa" />
-<img width="205" height="173" alt="image" src="https://github.com/user-attachments/assets/be531e23-fde3-4923-99ee-5c9160733e2e" />
-<img width="266" height="218" alt="image" src="https://github.com/user-attachments/assets/bfa8c333-e2d4-4297-8e83-6cba88949208" />
-<img width="891" height="280" alt="image" src="https://github.com/user-attachments/assets/bfaabf7b-6884-44c2-ac06-3f9dbf69256c" />
-<img width="249" height="214" alt="image" src="https://github.com/user-attachments/assets/698189ea-acca-42a3-8927-9fbbc76593b7" />
-<img width="199" height="167" alt="image" src="https://github.com/user-attachments/assets/f99f3b4e-2d8a-490f-ae6f-dcabe58febe2" />
-<img width="303" height="205" alt="image" src="https://github.com/user-attachments/assets/ebbc0d9b-200e-4ca1-8cbb-d388627f318b" />
+<img width="327" height="125" alt="image" src="https://github.com/user-attachments/assets/016e2e8b-dbaf-4c31-b32d-0241e68c3fa6" />
+
 
 
 
 ## Class Diagram
 <img width="1243" height="668" alt="image" src="https://github.com/user-attachments/assets/6c14f69b-4937-4f23-b641-d1d08bb2cd34" />
+<img width="475" height="242" alt="image" src="https://github.com/user-attachments/assets/46d80aed-f737-4153-8898-8424b3526fe5" />
+<img width="545" height="352" alt="image" src="https://github.com/user-attachments/assets/5521e04e-8eea-432b-b93f-8f177ae7d5a6" />
+<img width="1023" height="396" alt="image" src="https://github.com/user-attachments/assets/4e0b8ee2-0ef2-4b64-a4c3-5c5b763deb9a" />
+<img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/41513f7a-fc44-4d90-b2ae-055e5307b5e7" />
+<img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/30f2b7c7-f068-4dab-9873-50f6cb1089c1" />
+
+
+
+
+
 
 
 
 ## An Interesting Part of My Code
 
-- One of the interesting parts of my code is how I refactored the helper methods for the reportMenu and LedgerMenu. I looked up at how to pass a condition through the parameter and it taught me about Predicate. Predicate is a functional interface that allows this. I was able to reduce a lot of repetition with this trick.
-- Double vs double, where Double is an object. Used to check if the double was a valid number.4
+- Had a couple of switch cases in my cheese and meat class. Intellij suggested using yield in my switch cases to set a variable equal to the value returned.
+- Used a couple of stream methods instead of for-loops.
 
 ## Resources
-- https://www.geeksforgeeks.org/java/java-8-predicate-with-examples/
-- https://www.bezkoder.com/java-sort-arraylist-of-objects/
+- https://www.geeksforgeeks.org/java/enhancements-for-switch-statement-in-java-13/
 
+## Big thanks to:
+- Raymond
+- Potato Sensei
 ## Contributors:
 - Roger Su
 
