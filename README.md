@@ -55,7 +55,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - IntelliJ IDEA
 
 ## Demo(Left to right, top to bottom)
-<img width="327" height="242" alt="image" src="https://github.com/user-attachments/assets/016e2e8b-dbaf-4c31-b32d-0241e68c3fa6" />
+<img width="512" height="338" alt="image" src="https://github.com/user-attachments/assets/e6716466-e2cb-480a-9ef8-3d7f70e9fcb4" />
 <img width="475" height="242" alt="image" src="https://github.com/user-attachments/assets/46d80aed-f737-4153-8898-8424b3526fe5" />
 <img width="545" height="352" alt="image" src="https://github.com/user-attachments/assets/5521e04e-8eea-432b-b93f-8f177ae7d5a6" />
 <img width="1023" height="396" alt="image" src="https://github.com/user-attachments/assets/4e0b8ee2-0ef2-4b64-a4c3-5c5b763deb9a" />
