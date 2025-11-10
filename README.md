@@ -10,7 +10,6 @@ The Deli Around the Corner application allows customer to order sandwiches, chip
 - As a customer, I want to add multiple sandwiches, chips, and drinks, so I can place a full meal order.
 - As a customer, I want to receive my receipt of my order, so I can see the list of food I bought and the total price.
 - As a customer, I want to be able to clear my order, so I can restart my order due to a change of mind.
-- 
 ### Some features include:
 
 **Add sandwiches, chips, drinks**
