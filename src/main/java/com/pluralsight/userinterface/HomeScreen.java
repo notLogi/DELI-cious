@@ -105,14 +105,19 @@ public class HomeScreen {
 
         int breadSize;
         while(true){
-            System.out.println("What size do you want your sandwich to be?\n4 - small, 8 - medium, 12 - large\n99 - back to menu");
-            breadSize = scanner.nextInt();
-            scanner.nextLine();
-            if(breadSize == 99)
-                return;
-            if(breadSize == 4 || breadSize == 8 || breadSize == 12)
-                break;
-            System.err.println("You have selected an invalid size, please type again.");
+            try {
+                System.out.println("What size do you want your sandwich to be?\n4 - small, 8 - medium, 12 - large\n99 - back to menu");
+                breadSize = scanner.nextInt();
+                scanner.nextLine();
+                if (breadSize == 99)
+                    return;
+                if (breadSize == 4 || breadSize == 8 || breadSize == 12)
+                    break;
+                System.err.println("You have selected an invalid size, please type again.");
+            } catch (Exception e) {
+                System.err.println("Please enter a valid number!");
+                scanner.nextLine();
+            }
         }
 
         System.out.println("Do you want it to be toasted?\nType yes if so.");
