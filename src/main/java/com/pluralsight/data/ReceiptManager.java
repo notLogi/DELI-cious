@@ -12,10 +12,18 @@ public class ReceiptManager {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
         String fileName = "receipts/" + timeNow.format(formatter) + ".txt";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
-            writer.write("YOUR RECEIPT\n");
+            writer.write("THANK YOU FOR SHOPPING AT DELI-BROS\n");
+            writer.write("==================================================\n");
+            writer.write("DELI-BROS\n");
+            writer.write("==================================================\n");
+            DateTimeFormatter receiptFormatter = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm:ss");
+            writer.write("Date: " + timeNow.format(receiptFormatter) + "\n");
+            writer.write("--------------------------------------------------\n");
             for(Product product : cart.getShoppingCart()){
                 writer.write(product.toString() + "\n");
             }
+            writer.write("==================================================\n");
+            writer.write("Total: $" + cart.getTotalCost());
         }
         catch(Exception ex){
             System.err.println("File not able to be saved.");

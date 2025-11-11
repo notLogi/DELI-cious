@@ -29,6 +29,6 @@ public class Drink extends Product{
     @Override
     public String toString() {
         return "Drink: " + getName() + "(size: " +
-                size + "): " + String.format("%.2f", getCost());
+                size + "): $" + String.format("%.2f", getCost());
     }
 }

@@ -20,7 +20,7 @@ public class HomeScreen {
         Scanner scanner = new Scanner(System.in);
         while(true) {
             try {
-                System.out.println("Welcome to the sandwich shop!!!\n1) New Order\n0) Exit");
+                System.out.println("WELCOME TO DELI BROS!!!\n1) New Order\n0) Exit");
                 int choice = scanner.nextInt();
                 if (choice == 1)
                     showOrderMenu(scanner);
