@@ -6,7 +6,13 @@ import com.pluralsight.product.Chips;
 import com.pluralsight.product.Drink;
 import com.pluralsight.product.Product;
 import com.pluralsight.product.Sandwich;
+import com.pluralsight.toppings.Meat;
+import com.pluralsight.toppings.Sauce;
+import com.pluralsight.toppings.Topping;
+import com.pluralsight.toppings.Vegetable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HomeScreen {
@@ -41,7 +47,7 @@ public class HomeScreen {
         while(!didExit){
             try{
                 System.out.println("THE MENU");
-                System.out.println("=========================================");
+                System.out.println("==================================================\n");
                 System.out.println("""
                         1 - Sandwiches
                         2 - Chips
@@ -49,6 +55,7 @@ public class HomeScreen {
                         4 - Checkout
                         5 - Current shopping cart
                         0 - Cancel Order""");
+                System.out.println("\n==================================================");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
                 switch(choice) {
@@ -74,51 +81,32 @@ public class HomeScreen {
     }
 
     public void showCart(){
+        if(myCart.getShoppingCart().isEmpty()){
+            System.out.println("Your cart is empty.");
+            return;
+        }
         System.out.println("YOUR CURRENT CART");
-        System.out.println("=====================================");
+        System.out.println("==================================================\n");
         myCart.getShoppingCart().stream()
                 .map(Product::toString)
                 .forEach(System.out::println);
+        System.out.println("\n==================================================");
     }
 
     public void addSandwich(Scanner scanner){
-        String breadType;
-        try{
-            System.out.println("Please choose the type of bread you want.\n 1 - white, 2 - wheat, 3 - rye, 4 - wrap\nAny other option to return to menu.");
-            int breadChoice = scanner.nextInt();
-            scanner.nextLine();
-            switch(breadChoice){
-                case 1 -> breadType = "White";
-                case 2 -> breadType = "Wheat";
-                case 3 -> breadType = "Rye";
-                case 4 -> breadType = "Wrap";
-                default -> {
-                    System.out.println("Returning to menu");
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Returning to menu.");
-            scanner.nextLine();
-            return;
+        System.out.println("Make your own sandwich, or simply look at our signature sandwiches.\n" +
+                "Type choose to look at our signatures. Any other option will default to create.");
+        String optionCreateOwn = scanner.nextLine();
+        int signatureChoice = 0;
+        if(optionCreateOwn.equalsIgnoreCase("choose")){
+            signatureChoice = chooseSandwich(scanner);
+            if(signatureChoice == 0) return;
         }
+        String breadType = chooseBreadType(scanner);
+        if(breadType.isEmpty()) return;
 
-        int breadSize;
-        while(true){
-            try {
-                System.out.println("What size do you want your sandwich to be?\n4 - small, 8 - medium, 12 - large\n99 - back to menu");
-                breadSize = scanner.nextInt();
-                scanner.nextLine();
-                if (breadSize == 99)
-                    return;
-                if (breadSize == 4 || breadSize == 8 || breadSize == 12)
-                    break;
-                System.err.println("You have selected an invalid size, please type again.");
-            } catch (Exception e) {
-                System.err.println("Please enter a valid number!");
-                scanner.nextLine();
-            }
-        }
+        int breadSize = chooseBreadSize(scanner);
+        if(breadSize == 0) return;
 
         System.out.println("Do you want it to be toasted?\nType yes if so.");
         String toastedInput = scanner.nextLine();
@@ -126,13 +114,101 @@ public class HomeScreen {
 
         Sandwich sandwich = new Sandwich("Sandwich", breadType, breadSize, wantToasted);
 
-        System.out.println("Please add a topping.");
+        if(optionCreateOwn.equalsIgnoreCase("choose")){
+            sandwich.setListOfToppings(buildSignatureSandwich(signatureChoice, breadSize, myCart));
+            System.out.println("Anymore toppings?");
+        }
+        else System.out.println("Please add a topping.");
+
         sandwich.addTopping(scanner);
         if(!sandwich.getListOfToppings().isEmpty()) {
             myCart.addProduct(sandwich);
             System.out.println("Sandwich added successfully");
+            System.out.println("Do you want to remove any toppings?\n Any other option is no");
+            String choice = scanner.nextLine();
+            if(choice.equalsIgnoreCase("yes")){
+                System.out.println(sandwich);//toString is "redundant", can just print out sandwich details.
+                removeTopping(scanner, sandwich);
+            }
         }
         else System.out.println(":(");
+    }
+
+    public String chooseBreadType(Scanner scanner){
+        try{
+            System.out.println("Please choose the type of bread you want.\n 1 - white, 2 - wheat, 3 - rye, 4 - wrap\nAny other option to return to menu.");
+            int breadChoice = scanner.nextInt();
+            scanner.nextLine();
+            String breadType;
+            switch(breadChoice){
+                case 1 -> breadType = "White";
+                case 2 -> breadType = "Wheat";
+                case 3 -> breadType = "Rye";
+                case 4 -> breadType = "Wrap";
+                default -> {
+                    System.out.println("Returning to menu");
+                    return "";
+                }
+            }
+            return breadType;
+        } catch (Exception e) {
+            System.out.println("Returning to menu.");
+            scanner.nextLine();
+            return "";
+        }
+    }
+
+    public int chooseBreadSize(Scanner scanner){
+        while(true){
+            try {
+                System.out.println("What size do you want your sandwich to be?\n4 - small, 8 - medium, 12 - large\n99 - back to menu");
+                int breadSize = scanner.nextInt();
+                scanner.nextLine();
+                if (breadSize == 99) return 0;
+                if (breadSize == 4 || breadSize == 8 || breadSize == 12)
+                    return breadSize;
+                System.err.println("You have selected an invalid size, please type again.");
+            } catch (Exception e) {
+                System.err.println("Please enter a valid number!");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    public int chooseSandwich(Scanner scanner){
+        while(true){
+            try{
+                System.out.println("Here are sandwiches to choose from!\n 1 - BLT, 2 - Chicken-Bacon Ranch\n Type 99 to back");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                if(choice == 99) return 0;
+                if(choice >= 1 && choice <= 2) return choice;
+                System.out.println("Invalid choice, please enter a number 1-2");
+            } catch (Exception e) {
+                System.err.println("Please enter a number, not a string.");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    public ArrayList<Topping> buildSignatureSandwich(int choice, int size, Cart cart){
+        ArrayList<Topping> toppings = new ArrayList<>();
+        switch(choice){
+            case 1:
+                toppings.add(new Meat("Bacon", size, false));
+                toppings.add(new Vegetable("Lettuce", false));
+                toppings.add(new Vegetable("Tomato", false));
+                break;
+            case 2:
+                toppings.add(new Meat("Chicken", size, false));
+                toppings.add(new Meat("Bacon", size, false));
+                toppings.add(new Sauce("Ranch", false));
+        }
+        return toppings;
+    }
+
+    public void removeTopping(Scanner scanner, Sandwich sandwich){
+
     }
 
     public void addChips(Scanner scanner){
@@ -178,11 +254,10 @@ public class HomeScreen {
                 System.out.println("Type 99 tp exit");
                 drinkSize = scanner.nextInt();
                 scanner.nextLine();
-                if(drinkSize == 99)
-                    return;
+                if(drinkSize == 99) return;
                 if(drinkSize < 1 || drinkSize > 3) {
                     System.out.println("Please enter a number from 1-3");
-                    break;
+                    continue;
                 }
                 didExit = true;
             } catch (Exception e) {
@@ -196,8 +271,7 @@ public class HomeScreen {
                 System.out.println("What type of drink do you want?\n1 - Coke, 2 - Fanta, 3 - Sprite\nType 99 to return to menu.");
                 int drinkChoice = scanner.nextInt();
                 scanner.nextLine();
-                if(drinkChoice == 99)
-                    return;
+                if(drinkChoice == 99) return;
                 switch(drinkChoice){
                     case 1 -> myCart.addProduct(new Drink("Coke", drinkSize));
                     case 2 -> myCart.addProduct(new Drink("Fanta", drinkSize));
@@ -231,6 +305,7 @@ public class HomeScreen {
             ReceiptManager rf = new ReceiptManager();
             rf.saveReceipt(myCart);
             System.out.println("Enjoy!!");
+            myCart.emptyShoppingCart();
         }
         else if(input.equalsIgnoreCase("cancel")){
             myCart.emptyShoppingCart();

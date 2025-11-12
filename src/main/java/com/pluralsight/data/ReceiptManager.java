@@ -23,7 +23,7 @@ public class ReceiptManager {
                 writer.write(product.toString() + "\n");
             }
             writer.write("==================================================\n");
-            writer.write("Total: $" + cart.getTotalCost());
+            writer.write("Total: $" + cart.getTotalCost()); 
         }
         catch(Exception ex){
             System.err.println("File not able to be saved.");

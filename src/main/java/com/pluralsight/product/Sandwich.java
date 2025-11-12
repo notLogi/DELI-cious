@@ -26,6 +26,28 @@ public class Sandwich extends Product{
     public ArrayList<Topping> getListOfToppings(){
         return listOfToppings;
     }
+
+    public void setListOfToppings(ArrayList<Topping> listOfToppings) {
+        this.listOfToppings = listOfToppings;
+    }
+
+    public void removeToppings(Scanner scanner){
+        while(true){
+            System.out.println("What toppings do you want to remove? Type 99 to return.");
+            String choice = scanner.nextLine();
+            if(choice.equalsIgnoreCase("99")) return;
+            boolean removed = listOfToppings.removeIf(topping -> choice.equalsIgnoreCase(topping.getName()));
+            if(!removed) System.out.println("The topping you inputted in is not included in the sandwich");
+            else System.out.println("Removed successfully");
+            String again = scanner.nextLine();
+            System.out.println("Anymore toppings to remove?");
+            if(!again.equalsIgnoreCase("yes")){
+                break;
+            }
+
+        }
+    }
+
     public void addTopping(Scanner scanner){
         System.out.println("What toppings do you want? Type 1-5, meat, cheese, vegetables, sauces, and sides, respectively.\nType 99 if you don't want a sandwich anymore");
         while(true) {
