@@ -51,18 +51,18 @@ public class Sandwich extends Product{
 
     public void addTopping(Scanner scanner){
         while(true) {
-                int choice = InputValidation.parseInt("What toppings do you want? Type 1-5, meat, cheese, vegetables, sauces, and sides, respectively.\nType 99 to back.", scanner);
-                if (choice == 99) {
-                    return;
-                }
-                switch (choice) {
-                    case 1 -> processMeatChoice(scanner);
-                    case 2 -> processCheeseChoice(scanner);
-                    case 3 -> processVegetableChoice(scanner);
-                    case 4 -> processSauceChoice(scanner);
-                    case 5 -> processSideChoice(scanner);
-                    default -> System.err.println("Please choose a valid option!");
-                }
+            int choice = InputValidation.parseInt("What toppings do you want? Type 1-5, meat, cheese, vegetables, sauces, and sides, respectively.\nType 99 to back.", scanner);
+            if (choice == 99) {
+                return;
+            }
+            switch (choice) {
+                case 1 -> processMeatChoice(scanner);
+                case 2 -> processCheeseChoice(scanner);
+                case 3 -> processVegetableChoice(scanner);
+                case 4 -> processSauceChoice(scanner);
+                case 5 -> processSideChoice(scanner);
+                default -> System.err.println("Please choose a valid option!");
+            }
         }
     }
 
@@ -149,7 +149,19 @@ public class Sandwich extends Product{
                     99 - back""", scanner);
             if (vegetableChoice == 99) return;
 
-            String name = getString(vegetableChoice);
+            String name;
+            switch (vegetableChoice) {
+                case 1 -> name = "lettuce";
+                case 2 -> name = "peppers";
+                case 3 -> name = "onions";
+                case 4 -> name = "tomatoes";
+                case 5 -> name = "jalapenos";
+                case 6 -> name = "cucumbers";
+                case 7 -> name = "pickles";
+                case 8 -> name = "guacamole";
+                case 9 -> name = "mushrooms";
+                default -> name = "";
+            }
 
             if (!name.isEmpty()) {
                 System.out.println("Do you want extra veggies?\nType yes if you do, leave blank if you don't");
@@ -162,23 +174,6 @@ public class Sandwich extends Product{
             System.err.println("Invalid choice for veggies");
         }
 
-    }
-    //helper method to reduce code, intellij suggested this.
-    private static String getString(int vegetableChoice) {
-        String name;
-        switch (vegetableChoice) {
-            case 1 -> name = "lettuce";
-            case 2 -> name = "peppers";
-            case 3 -> name = "onions";
-            case 4 -> name = "tomatoes";
-            case 5 -> name = "jalapenos";
-            case 6 -> name = "cucumbers";
-            case 7 -> name = "pickles";
-            case 8 -> name = "guacamole";
-            case 9 -> name = "mushrooms";
-            default -> name = "";
-        }
-        return name;
     }
 
     public void processSauceChoice(Scanner scanner) {
