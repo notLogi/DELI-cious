@@ -1,4 +1,4 @@
-## Deli Around the Corner
+## DELI-BROS ORDERING APP
 
 
 The Deli Around the Corner application allows customer to order sandwiches, chips, and drinks. Sandwiches are fully customizable with cold cuts, veggies, and sauces of their choosing. After checking out, the receipt is stored in a text file named the time the order was processed.   
@@ -62,7 +62,8 @@ Follow these steps to get your application running within IntelliJ IDEA:
 <img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/30f2b7c7-f068-4dab-9873-50f6cb1089c1" />
 
 ## Class Diagram
-<img width="1243" height="668" alt="image" src="https://github.com/user-attachments/assets/6c14f69b-4937-4f23-b641-d1d08bb2cd34" />
+<img width="1428" height="814" alt="image" src="https://github.com/user-attachments/assets/9b20c6c3-46c8-486f-917f-84b778c8580e" />
+
 
 
 ## An Interesting Part of My Code
