@@ -1,6 +1,6 @@
 package com.pluralsight.product;
 
-import com.pluralsight.checkers.InputValidation;
+import com.pluralsight.util.InputValidation;
 import com.pluralsight.toppings.*;
 
 import java.util.ArrayList;

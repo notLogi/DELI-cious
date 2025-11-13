@@ -1,6 +1,6 @@
 package com.pluralsight.userinterface;
 
-import com.pluralsight.checkers.InputValidation;
+import com.pluralsight.util.InputValidation;
 import com.pluralsight.data.*;
 import com.pluralsight.product.*;
 import com.pluralsight.toppings.*;
