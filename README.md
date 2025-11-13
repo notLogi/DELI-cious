@@ -70,6 +70,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 - Had a couple of switch cases in my cheese and meat class. Intellij suggested using yield in my switch cases to set a variable equal to the value returned.
 - Used a couple of stream methods instead of for-loops.
+- Used an integer parser to avoid having to use try-catches
 
 ## Resources
 - https://www.geeksforgeeks.org/java/enhancements-for-switch-statement-in-java-13/
