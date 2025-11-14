@@ -62,7 +62,8 @@ Follow these steps to get your application running within IntelliJ IDEA:
 <img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/30f2b7c7-f068-4dab-9873-50f6cb1089c1" />
 
 ## Class Diagram
-<img width="1428" height="814" alt="image" src="https://github.com/user-attachments/assets/9b20c6c3-46c8-486f-917f-84b778c8580e" />
+<img width="1801" height="835" alt="image" src="https://github.com/user-attachments/assets/26eee9c0-57be-4dbc-b66e-3b814ab0f8ce" />
+
 
 
 
