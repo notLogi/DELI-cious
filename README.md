@@ -55,11 +55,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 - IntelliJ IDEA
 
 ## Demo(Left to right, top to bottom)
-<img width="512" height="338" alt="image" src="https://github.com/user-attachments/assets/e6716466-e2cb-480a-9ef8-3d7f70e9fcb4" />
-<img width="545" height="352" alt="image" src="https://github.com/user-attachments/assets/5521e04e-8eea-432b-b93f-8f177ae7d5a6" />
-<img width="1023" height="396" alt="image" src="https://github.com/user-attachments/assets/4e0b8ee2-0ef2-4b64-a4c3-5c5b763deb9a" />
-<img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/41513f7a-fc44-4d90-b2ae-055e5307b5e7" />
-<img width="807" height="248" alt="image" src="https://github.com/user-attachments/assets/30f2b7c7-f068-4dab-9873-50f6cb1089c1" />
+<img width="418" height="399" alt="image" src="https://github.com/user-attachments/assets/a682b307-cae1-4975-849b-d859fbdae1e8" />
+<img width="662" height="343" alt="image" src="https://github.com/user-attachments/assets/75068ae0-1c98-4818-a8c4-6ccc8d26a593" />
+<img width="789" height="409" alt="image" src="https://github.com/user-attachments/assets/4694b657-db6c-429c-957e-9a5a58eebce6" />
+<img width="788" height="477" alt="image" src="https://github.com/user-attachments/assets/313bfe97-144a-4342-ad20-2d217574c0be" />
+<img width="595" height="313" alt="image" src="https://github.com/user-attachments/assets/fb7def3c-e900-42be-8283-a7be3c4e1cf9" />
 
 ## Class Diagram
 <img width="1801" height="835" alt="image" src="https://github.com/user-attachments/assets/26eee9c0-57be-4dbc-b66e-3b814ab0f8ce" />
